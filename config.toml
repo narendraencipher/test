@@ -1,15 +1,10 @@
-
 publishDir = "docs"
-<<<<<<< HEAD
-baseurl = "https://narendraencipher.github.io/test/"
-=======
-baseurl = "https://narendraencipher.github.io/test"
->>>>>>> 3ba42a6c3115696b23a98fc55e2f4a0d3607ea38
+baseurl = "https://narendraencipher.github.io/threads_beta/"
 languageCode = "en-us"
-title = "Blackburn Theme Demo"
+title = " Threads"
 theme = "blackburn"
-author = "Yoshiharu Yamashita"
-copyright = "&copy; 2016. All rights reserved."
+author = "Enciphers"
+copyright = "&copy; 2020. All rights reserved."
 canonifyurls = true
 paginate = 10
 
@@ -19,13 +14,13 @@ paginate = 10
 
 [params]
   # Shown in the home page
-  subtitle = "A Hugo Theme"
-  brand = "Blackburn"
+  subtitle = "A vulnerable web application"
+  brand = "Threads"
   googleAnalytics = "Your Google Analytics tracking ID"
   disqus = "Your Disqus shortname"
   # CSS name for highlight.js
   highlightjs = "androidstudio"
-  dateFormat = "02 Jan 2006, 15:04"
+  dateFormat = "15 Dec 2020, 15:04"
 
 [menu]
   # Shown in the side menu.
@@ -36,20 +31,20 @@ paginate = 10
     identifier = "home"
     url = "/"
   [[menu.main]]
-    name = "Posts"
+    name = "Setup"
     pre = "<i class='fa fa-list fa-fw'></i>"
-    weight = 2
+    weight = 3
     identifier = "post"
     url = "/post/"
-  [[menu.main]]
+[[menu.main]]
     name = "About"
-    pre = "<i class='fa fa-user fa-fw'></i>"
-    weight = 3
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 2
     identifier = "about"
     url = "/about/"
   [[menu.main]]
-    name = "Contact"
-    pre = "<i class='fa fa-phone fa-fw'></i>"
+    name = "Challenges"
+    pre = "<i class='fa fa-list fa-fw'></i>"
     weight = 4
     url = "/contact/"
 
