@@ -1,5 +1,10 @@
+
 publishDir = "docs"
+<<<<<<< HEAD
 baseurl = "https://narendraencipher.github.io/test/"
+=======
+baseurl = "https://narendraencipher.github.io/test"
+>>>>>>> 3ba42a6c3115696b23a98fc55e2f4a0d3607ea38
 languageCode = "en-us"
 title = "Blackburn Theme Demo"
 theme = "blackburn"
