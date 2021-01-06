@@ -1,5 +1,5 @@
 publishDir = "docs"
-baseurl = "https://narendraencipher.github.io/Threads_Beta/"
+baseurl = "https://narendraencipher.github.io/test/"
 languageCode = "en-us"
 title = "Blackburn Theme Demo"
 theme = "blackburn"
