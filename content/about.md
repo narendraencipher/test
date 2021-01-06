@@ -1,31 +1,24 @@
 +++
-title = "About"
-date = "2014-04-09"
+title = "About Threads"
+date = "2020-12-16"
 sidemenu = "true"
-description = "About me and this site"
+description = "Developed by Enciphers"
 +++
 
-Hugo is a static site engine written in Go.
+It’s a NodeJs based application and it has also used EJS as a frontend development templating engine with bootstrap and a mix of simple HTML, CSS is used to buit this web application.
 
+This web application comes up with various web application vulnerabilities just like some real web applications have and these vulnerabilities are the challenges on this web application which are need to be solved by its users. So this application act as a vulnerable web lab where users can have hands-on paractice on the different vulnerabilities present in it.  
 
-It makes use of a variety of open source projects including:
+It also consist of  various features like:
 
-* [Cobra](https://github.com/spf13/cobra)
-* [Viper](https://github.com/spf13/viper)
-* [J Walter Weatherman](https://github.com/spf13/jWalterWeatherman)
-* [Cast](https://github.com/spf13/cast)
+* A user can sign up and login into this application.
+* A user can create posts, he/she can also add images to the post he/she creates.
+* A user can like and can comment on other users posts.
+* A user can also chat witha another user.
+* A user can tag as many users he want to tag in his post.
 
-Learn more and contribute on [GitHub](https://github.com/spf13).
+Learn more on [Github](https://github.com/enciphers).
 
-## Setup
-
-Some fun facts about [Hugo](http://gohugo.io/):
-
-* Built in [Go](http://golang.org/)
-* Loosely inspired by [Jekyll](http://jekyllrb.com/)
-* Primarily developed by [spf13](http://spf13.com/) on the train while commuting to and from Manhattan.
-* Coded in [Vim](http://vim.org) using [spf13-vim](http://vim.spf13.com/)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/spf13/hugo/issues/new) or [ask me on Twitter](https://twitter.com/spf13).
+Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/enciphers) or [ask me on Twitter](https://twitter.com/enciphers_).
 
 Thanks for reading!
