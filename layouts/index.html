@@ -1,0 +1,47 @@
+{{ partial "header.html" . }}
+
+<div class="header">
+  <h1>Threads</h1>
+  <h2>A vulnerable web application developed by Enciphers</h2>
+</div>
+
+
+<div class="content">
+<h2>About</h2>
+<ul>
+<li>It is a Vulnerable Web Application build in Node.js for learning and practice web application security. it is alike a social media platform where people can connect with each other.</li>
+<li> EJS is used as a frontend development templating engine with bootstrap and a mix of simple HTML, CSS is used to build this vulnerable web application. </li>
+<li>Express libraries which are used are 
+<ol>
+<li>Multer (file upload both with s3 bucket and disk storage).</li>
+<li>Passport.js (for cookie-based authentication and JWT authentication).</li>
+</ol> </li>
+<li>Basically this application contains various vulnerabilities as challenges for you to solve. </li>
+</ul>
+<h2>Install</h2>
+<ul>
+<li>Download: <a href="https://drive.google.com/file/d/1Eez2sK3etg25N6KPshACBk70TJ88gp_V/view?usp=sharing">Click here</a></li>
+<li>Goto side bar menu "Setup" tab to see how to configure the Threads application in your local system.</li>
+</ul>
+<h2>Features</h2>
+This is alike social media application so it consist some of the similar features like:
+<ul>
+<li>A user can sign up and login into this application.</li>
+<li>A user can create posts, he/she can also add images to the post he/she creates.</li>
+<li>A user can like and can comment on other users posts.</li>
+<li>A user can also chat with other users.</li>
+<li>A user can tag as many users he want to tag in his post.</li>
+</ul>
+<h2>List of All Challenges</h2>
+<ul>
+<li>Self XSS</li>
+<li>Attribute XSS</li>
+<li>Hidden directory</li>
+<li>IDOR</li>
+<li>JWT authentication</li>
+<li>MongoDB injection</li>
+<li>SSRF</li>
+<li>CSRF</li>
+</ul>
+</div>
+{{ partial "footer.html" . }}

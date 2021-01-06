@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Developed by Enciphers">
+  <meta name="generator" content="Hugo 0.79.0" />
+
+  <title>Challenges present on Threads and there Solutions &middot;  Threads</title>
+
+    
+
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/pure-min.css">
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-old-ie-min.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/pure/1.0.0/grids-responsive-min.css">
+  <!--<![endif]-->
+
+  <!--[if lte IE 8]>
+  <link rel="stylesheet" href="https://narendraencipher.github.io/threads_beta/css/side-menu-old-ie.css">
+  <![endif]-->
+  <!--[if gt IE 8]><!-->
+  <link rel="stylesheet" href="https://narendraencipher.github.io/threads_beta/css/side-menu.css">
+  <!--<![endif]-->
+
+  <link rel="stylesheet" href="https://narendraencipher.github.io/threads_beta/css/blackburn.css">
+
+  
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.9.0/css/all.css">
+
+  
+  <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type="text/css">
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+ 
+  
+
+  
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/androidstudio.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  
+  <script>hljs.initHighlightingOnLoad();</script>
+  
+
+  <link rel="shortcut icon" href="https://narendraencipher.github.io/threads_beta/img/favicon.ico" type="image/x-icon" />
+
+  
+  
+
+</head>
+
+
+<body>
+<div id="layout">
+
+  
+<a href="#menu" id="menuLink" class="menu-link">
+  
+  <span></span>
+</a>
+<div id="menu">
+
+  
+  <a class="pure-menu-heading brand" href="https://narendraencipher.github.io/threads_beta/">Threads</a>
+
+
+  <div class="pure-menu">
+    <ul class="pure-menu-list">
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://narendraencipher.github.io/threads_beta/"><i class='fa fa-home fa-fw'></i>Home</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://narendraencipher.github.io/threads_beta/about/"><i class='fa fa-list fa-fw'></i>About</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://narendraencipher.github.io/threads_beta/post/"><i class='fa fa-list fa-fw'></i>Setup</a>
+      
+        </li>
+      
+      
+        <li class="pure-menu-item">
+          <a class="pure-menu-link" href="https://narendraencipher.github.io/threads_beta/contact/"><i class='fa fa-list fa-fw'></i>Challenges</a>
+      
+        </li>
+      
+    </ul>
+  </div>
+
+  <div class="pure-menu social">
+  <ul class="pure-menu-list">
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://twitter.com/*" rel="me" target="_blank"><i class="fab fa-twitter-square fa-fw"></i>Twitter</a>
+    </li>
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://facebook.com/*" rel="me" target="_blank"><i class="fab fa-facebook-square fa-fw"></i>Facebook</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://instagram.com/*" rel="me" target="_blank"><i class="fab fa-instagram fa-fw"></i>Instagram</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://linkedin.com/in/*" rel="me" target="_blank"><i class="fab fa-linkedin"></i></i>LinkedIn</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://github.com/yoshiharuyamashita" rel="me" target="_blank"><i class="fab fa-github-square fa-fw"></i>GitHub</a>
+    </li>
+    
+
+    
+
+    
+
+    
+    <li class="pure-menu-item">
+      <a class="pure-menu-link" href="https://stackoverflow.com/users/*" rel="me" target="_blank"><i class="fab fa-stack-overflow fa-fw"></i>Stack Overflow</a>
+    </li>
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+  </ul>
+</div>
+
+
+  <div>
+  <div class="small-print">
+    <small>&copy; 2020. All rights reserved.</small>
+  </div>
+  <div class="small-print">
+    <small>Built with&nbsp;<a href="https://gohugo.io/" target="_blank">Hugo</a></small>
+    <small>Theme&nbsp;<a href="https://github.com/yoshiharuyamashita/blackburn" target="_blank">Blackburn</a></small>
+  </div>
+</div>
+
+</div>
+
+
+  <div id="main">
+
+
+<div class="header">
+  <h1>Challenges present on Threads and there Solutions</h1>
+  <h2>Developed by Enciphers</h2>
+</div>
+<div class="content">
+  <p>As we know there are many vulnerabilities present in the Threads web application so to find out and exploit each of  these vulnerabilities are the challenges on Threads application.</p>
+<h4 id="note-hints-are-provided-under-the-heading-of-each-challenges-in-a-small-paragraph-so-read-them-at-your-own-risks">Note: (hints are provided under the heading of each challenges in a small paragraph, so read them at your own risks).</h4>
+<p>Here is the list of all the challenges which a user can solve:</p>
+<h2 id="challenge-1self-xss">Challenge-1:(Self-XSS)</h2>
+<p>Hint:  Insert a payload under the name of the account (could be done when registering an account or changing the existing account name for the profile section.</p>
+<h2 id="challenge-2directory-brute-forcing">Challenge-2:(Directory brute-forcing)</h2>
+<p>Hint: There is a directory (/management) where we can login as admin with the hardcoded mail which is <a href="mailto:abhinav@enciphers.com">abhinav@enciphers.com</a> . To Brute Force all the directories you can take help of tool Dirsearch.</p>
+<h2 id="challenge-3mongodb-injection">Challenge-3:(MongoDB Injection)</h2>
+<p>Hint : It is present in the search feature of the application where it works like this if the name (exact) matches with the application then it will show that user&rsquo;s id and its information. Also if you pass {$gt: &lsquo;'}  in the search field, it would show all the users as the query which was executing.</p>
+<h2 id="challenge-4jwt-authentication">Challenge-4:(JWT Authentication)</h2>
+<p>Note:  For JWT challenge, hardcoded email is ‘abhinav@enciphers.com’ and the password for it is ‘123’. So first make sure that an account exists with the above email id and then try to forge the token.</p>
+<p>Hint:  The application uses cookie-based authentication but has the support of JWT as well.There is a /management page which has an authentication system which works via JWT API. When logging in to the /management page by providing your credentials, you would see that you are not authorized to log in. Now to become authorized user one has to forge the token of the admin account since its using HMAC so the current secret key is thr3@ds@000t so forge a token with ‘abhinav@enciphers.com’.You can replace the token via burp request and response or just change the token under local storage and refresh the page you should have admin access where you can delete other users.</p>
+<h2 id="challenge-5insecure-direct-object-reference">Challenge-5:(Insecure Direct Object Reference)</h2>
+<p>Hint:  Deleting Comment/Post of any user using BurpSuite (having the UUID).</p>
+<h2 id="challenge-6server-side-request-forgery">Challenge-6:(Server-side Request Forgery)</h2>
+<p>Hint: So it is in  the profile section where you can upload your profile picture via URL, its very simple basics SSRF. You can fetch internal files(which exists) on the server like /etc/passwd .Then inspect the profile page and download the updated image you would see the /etc/passwd content .</p>
+<h2 id="challenge-7attribute-xss">Challenge-7:(Attribute-XSS)</h2>
+<p>Hint:  Under the profile section, you can change your website link, it would execute only when visited in an unauthenticated state.</p>
+<h2 id="challenge-8cross-site-request-forgery">Challenge-8:(Cross-site Request Forgery)</h2>
+<p>Hint: The Threads application is CSRF vulnerable because it does not create anti csrf tokens. So basically as an attacker you can change victims password, name,other information on profile section. You have to send the malicious link to the victim  which should be clicked by  the victim to perform action in it. The malicious file to change victim&rsquo;s password is  attached to the link he sent.</p>
+<h1 id="solutions">Solutions</h1>
+<p>Here are the solution to all the vulnerabilities present on the Threads application:</p>
+<h2 id="solution-1self-xss">Solution-1:(Self-XSS)</h2>
+<ol>
+<li>The self-xss is present in the name field of the profile section.So go to your profile first.</li>
+<li>In the name field  enter a XSS payload .Like &gt;<!-- raw HTML omitted -->alert(1)<!-- raw HTML omitted --></li>
+<li>Click on update to update new credentials. After this you will see that the entered XSS payload getting  executed on your browser and it will keep getting executed whenever you will visit your profile section.</li>
+</ol>
+<h2 id="solution-2directory-brute-forcing">Solution-2:(Directory Brute forcing)</h2>
+<ol>
+<li>We can use  dirsearch tool to perform directory brute forcing on application to find the hidden end point of the application.</li>
+<li>You can install this tool via github and can use command &ldquo;python3 dirsearch.py -u <!-- raw HTML omitted --> -e <!-- raw HTML omitted -->&rdquo;. Example : &ldquo;python3 dirsearch.py -u http://localhost:3000 -e html,php&rdquo;.</li>
+<li>The http status code 200  is shown  on the directories like  /home , /management , /users/login.</li>
+<li>These can be accessed by using the endpoint after the domain name in the URL in your browser.</li>
+<li>In http://localhost:3000/management this page opens up.Here you can login as administrator.The hard-coded mail for the admin account is <a href="mailto:abhinav@enciphers.com">abhinav@enciphers.com</a> .You have to create an account with this mail to login as admin.</li>
+</ol>
+<h2 id="solution-3mongodb-injection">Solution-3:(MongoDB Injection)</h2>
+<ol>
+<li>The mongoDB injection is present inside the ‘search bar’ of the threads application.</li>
+<li>When you write any username on the search bar and search for it then it passes the query searching for the user with the exact same name in its database. If there is the user present with the exact same name then it will show details about it on your screen.</li>
+</ol>
+<h2 id="solution-4jwt-authentication">Solution-4:(JWT Authentication)</h2>
+<ol>
+<li>So basically first you have to check whether there is an  user account with email <a href="mailto:abhinav@enciphers.com">abhinav@enciphers.com</a> with password ‘123’ is present  because that is the hardcoded email.So first make sure that an account exists with the above email id and then try to forge the token.</li>
+<li>There is a /management page which has an authentication system which works via JWT API .</li>
+<li>Visit this management page in the application  and sign in as <a href="mailto:abhinav@encipher.com">abhinav@encipher.com</a> email. Capture this sign-in request  going out of your browser with the  BurpSuite proxy.</li>
+<li>Open the proxy tab in your BurpSuite to check the outgoing request.Copy this request and send it to the repeater.</li>
+<li>In the repeater tab send that request to check out the response for that request.As you can see in the response section you have got the token written with green ink. Now copy that token and send it to <a href="https://jwt.io/">https://jwt.io/</a> website .</li>
+<li>The JWT token is divided in three parts: algo,payload,signature.</li>
+<li>So basically we have to find out the secret key used in this token in the signature section because the new token which we will make it for the unauthorized user to access the admin section should  have the same signature .</li>
+<li>The application matches the signature with the signature present on the server side to give access to our unauthorized user. Mainly  we have to fool the application showing them that we are admin and we are entering as admin.</li>
+<li>To crack the secret key inside this token you can use this tool <a href="https://github.com/ticarpi/jwt_tool/blob/master/jwt_tool.py">https://github.com/ticarpi/jwt_tool/blob/master/jwt_tool.py</a> .Install this tool via your terminal and perform brute forcing  to crack the secret key for the given token.</li>
+<li>To do brute forcing we need a wordlist file (where many passwords are given) which we can use for getting the secret key. So for this application the wordlist file is given on Enciphers github visit this link and save this file. <a href="https://github.com/enciphers/WebHacking-Training-Resources/blob/master/jwt-wordlist">https://github.com/enciphers/WebHacking-Training-Resources/blob/master/jwt-wordlist</a> (I have saved this file with the name of passwd.txt ).</li>
+<li>Now let’s  use this tool to find the secret key. Go to your terminal and open wherever you installed that key. Syntax of the  command is:
+“python3 jwt_tool.py  [jwt token you got on your BurpSuite] -C -d  [the wordlist file you saved]”</li>
+<li>The command is  example(according to the jwt token I got and the wordlist file I saved with the name of passwd.txt ):
+“python3 jwt_tool.py eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFiaGluYXZAZW5jaXBoZXJzLmNvbSIsImlhdCI6MTYwNDY1OTIwNiwiZXhwIjoxNjA0NjY5MjA2fQ.2CrCcllttd02ktDrnUlUFiWj-oHxd4HXvf20yiYAo1M -C -d passwd.txt”.</li>
+<li>As you can see the secret key for the token is thr3@ds@000 . Use this key on <a href="https://jwt.io/">https://jwt.io/</a> website to encode a new token for an unauthorised user.</li>
+</ol>
+<h2 id="solution-5idor">Solution-5:(IDOR)</h2>
+<ol>
+<li>The IDOR is present in the  deletion of a post or on the comment of that post.</li>
+<li>As you can see that there is a feature present in the Threads application where a user can delete only and only his post that he has created and also he can delete only his comment that he has made on a post. So a user cannot delete any other users post but as mentioned that there is an IDOR vulnerability in the application.</li>
+<li>This IDOR vulnerability is present in the section of deletion of a post or comment which means we can delete any other users post or comment though it’s not possible with the features inside the application but we can do it with the help of BurpSuite. So open your BurpSuite and connect it with the  browser you are working on.</li>
+<li>To solve  this vulnerability  we need two accounts. So let’s login with our first account (mine first account name is “User1”) and create a post.</li>
+<li>As you can see the post from user1 account has been created.So if you check the sitemap tab present inside the target tab in your BurpSuite will see that all the http requests have been captured. Go to http://localhost:3000 folder section in the target tab, you can see there that the post you created its UUID has been made which is inside the create option in the post folder and also an UUID is created to delete that post which you will find in the delete folder.</li>
+<li>Actually what BurpSuite does is it list all the folder and directories of that website which is being targetted inside the sitemap tab which is present inside the target tab.</li>
+<li>Now let’s login with another account(my second account name is ‘User2’) and create a post.</li>
+<li>For the post created by user2 a  create and delete UUID has been created inside the sitemap tab present inside the target tab in the BurpSuite. So as you can see in the delete folder there are two UUID present. The first one is for the post created from user1 account and the second one is for the post created from user2 account.</li>
+<li>Now as you know that user2  can delete only his post which he created according to the feature of the application but as we know IDOR is present so we can delete other users post too. So let’s turn the intercept on in BurpSuite. So we will make the delete request for the post. The BurpSuite will captue this delete request going out of your browser.</li>
+<li>As you can see in the outgoing request the UUID of that post is present which we are going to delete. So before forwarding the request change the UUID to some another users UUID which is present on his post. Currently the given UUID in the request is for the post which user2 created but we will change the UUID with the post created by user1.So copy user1 UUID from the sitemap tab and replace it with the user2 UUID here on the request inside the proxy.</li>
+<li>Forward this request and check that the post made by user1 is  successfully deleted while logging into user2 account.</li>
+<li>So basically user2 made his deletion request as a bait so instead of his post UUID he can replace it with user1 UUID and send that deletion request to delete another user post from his account.</li>
+</ol>
+<h2 id="solution-6ssrf">Solution-6:(SSRF)</h2>
+<ol>
+<li>So there is a simple ssrf which is present in the profile section of this application under the url field which is used for uploading an image via url.</li>
+<li>So the /etc/passwd file is leaking which we have to find out.The /etc/passwd file on Unix systems contains password information. An attacker who has accessed the etc/passwd file may attempt a brute force attack of all passwords on the system. An attacker may attempt to gain access to the etc/passwd file through HTTP, FTP, or SMB. Typically this is done through one of the CGI scripts installed on the server, so this event may be seen in conjunction with other events of that type.</li>
+<li>So go to your profile section the last field the URL on is used to upload an image via URL.</li>
+<li>So now let’s use the file protocol on this field and try to get /etc/passwd file from the server. Use file:///etc/passwd on the url field to fetch the file from the server.</li>
+<li>Update this and open your profile section again and you will see that  in the image section there is no image because obviously that was not an url for uploading an image.</li>
+<li>Now save that image by doing right click on it and then clicking on view image button.</li>
+<li>Open your terminal and go to where you have saved that image and open that image file using the nano command “nano [file name]”.</li>
+<li>As you can see now you have access to the /etc/passwd file which you have accessed using file protocol.</li>
+</ol>
+<h2 id="solution-7attribute-xss">Solution-7:(Attribute-XSS)</h2>
+<ol>
+<li>This XSS is present inside the profile section inside the website field. It is a stored XSS which is only executable when seen in an unauthenticated state. So first let’s go to the profile section and put a simple javascript XSS payload inside the website field. XSS payload= “&gt;<!-- raw HTML omitted -->alert(“Hacker”)<!-- raw HTML omitted -->.</li>
+<li>Update the profile and now copy the url for this page shown in your browser.</li>
+<li>After copying open a new private window and paste this url in your browser and enter.</li>
+<li>As you can see the XSS has been executed when we visited from an unauthenticated state.</li>
+</ol>
+<h2 id="solution-8csrf">Solution-8:(CSRF)</h2>
+<ol>
+<li>So Threads application is CSRF vulnerable so we can change many things like password,name etc of a victim account just by sending him a malicious html file performing some actions  and if he opens it  then there will be changes in his account without him knowing about it.</li>
+<li>Like here we can take an example of changing a user&rsquo;s password. So what we will be going to do as an attacker is to  create a html file which will have an action for changing password for that user. So when the victim will open up that html file his password will get changed.</li>
+<li>First just log in as a user. I have logged in as user3 whose password is currently “user”.</li>
+<li>Now as we have logged in as this user(user3) let’s try  changing the password through user account only on threads app. So basically like I am user3 right now and I want to change my password to “user@123”. So I will just update it in my profile section. If I check this request going out of my browser for changing password I get to know that for updating the password the application is using the  ‘POST’ request.</li>
+<li>So currently my user3 has the password ‘user@123’.</li>
+<li>As you can see in your outgoing request  for  changing the password the request going out is the  ‘POST’ request. Also it was using ‘password’ and ‘confirm_password’ as the hidden  parameters in the request  which we you will get to know  while updating your password.</li>
+<li>So as an attacker we know that the http request which will be sent through the browser is a ‘POST’  request to make changes in  the profile section. So now what we will be going to do is make an html document which will perform the action of changing the password when it will be executed.</li>
+<li>So the html document for changing the password should contain fields like:</li>
+</ol>
+<!-- raw HTML omitted -->
+<p>These are all the challenges present on Threads application which you can solve.
+Happy learning,Happy hacking!</p>
+
+</div>
+
+</div>
+</div>
+<script src="https://narendraencipher.github.io/threads_beta/js/ui.js"></script>
+<script src="https://narendraencipher.github.io/threads_beta/js/menus.js"></script>
+
+
+<script>
+  
+  if (window.location.hostname != "localhost") {
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'Your Google Analytics tracking ID', 'auto');
+    ga('send', 'pageview');
+  }
+</script>
+
+
+
+
+
+<script src="https://narendraencipher.github.io/threads_beta/js/math-code.js"></script>
+  <script async src="//cdn.bootcss.com/mathjax/2.7.1/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  
+
+
+</body>
+</html>
+

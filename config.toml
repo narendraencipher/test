@@ -1,0 +1,59 @@
+publishDir = "docs"
+baseurl = "https://narendraencipher.github.io/threads_beta/"
+languageCode = "en-us"
+title = " Threads"
+theme = "blackburn"
+author = "Enciphers"
+copyright = "&copy; 2020. All rights reserved."
+canonifyurls = true
+paginate = 10
+
+[indexes]
+  tag = "tags"
+  topic = "topics"
+
+[params]
+  # Shown in the home page
+  subtitle = "A vulnerable web application"
+  brand = "Threads"
+  googleAnalytics = "Your Google Analytics tracking ID"
+  disqus = "Your Disqus shortname"
+  # CSS name for highlight.js
+  highlightjs = "androidstudio"
+  dateFormat = "15 Dec 2020, 15:04"
+
+[menu]
+  # Shown in the side menu.
+  [[menu.main]]
+    name = "Home"
+    pre = "<i class='fa fa-home fa-fw'></i>"
+    weight = 1
+    identifier = "home"
+    url = "/"
+  [[menu.main]]
+    name = "Setup"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 3
+    identifier = "post"
+    url = "/post/"
+[[menu.main]]
+    name = "About"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 2
+    identifier = "about"
+    url = "/about/"
+  [[menu.main]]
+    name = "Challenges"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 4
+    url = "/contact/"
+
+[social]
+  # Link your social networking accouns to the side menu
+  # by entering your username or ID.
+  twitter = "*"
+  facebook = "*"
+  instagram = "*"
+  github = "yoshiharuyamashita"
+  stackoverflow = "*"
+  linkedin = "*"
