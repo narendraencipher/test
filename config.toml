@@ -1,5 +1,4 @@
-publishDir = "docs"
-baseurl = "https://narendraencipher.github.io/threads_beta/"
+baseurl = "https://www.encipherthreads.com/"
 languageCode = "en-us"
 title = " Threads"
 theme = "blackburn"
@@ -47,6 +46,18 @@ paginate = 10
     pre = "<i class='fa fa-list fa-fw'></i>"
     weight = 4
     url = "/contact/"
+  [[menu.main]]
+    name = "Solutions"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 5
+    identifier = "solution"
+    url = "/solution/"
+  [[menu.main]]
+    name = "Upcoming Features"
+    pre = "<i class='fa fa-list fa-fw'></i>"
+    weight = 6
+    identifier = "new"
+    url = "/new/"
 
 [social]
   # Link your social networking accouns to the side menu
